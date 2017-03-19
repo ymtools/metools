@@ -21,7 +21,23 @@ a{cursor: pointer;}
   .ymheader .logo {
       height: 60px;
   }
-  
+  .ymheader .searchTxt{
+          position: absolute;
+    width: 200px;
+    left: 120px;
+    top: 16px;
+    
+  }
+  .ymheader .searchTxt input{
+          height: 30px;
+    line-height: 30px;
+    padding-left: 12px;
+    background-color: #424652;
+    background-color: rgba(255,255,255,.05);
+    border: none 0;
+    color: #fff;
+    font-size: 12px;
+  }
     .welcome {
         width: 200px;
         height: 200px;
@@ -41,3 +57,23 @@ a{cursor: pointer;}
         font-size: 18px;
         text-shadow: 1px 1px
     }
+    #contentFooter{
+        z-index:999;height:35px;
+    }
+    #contentFooter p{
+        text-indent: 10px;
+        line-height: 35px;
+        font-size: 15px;
+    }
+    #contentFooter p a{
+        margin: 10px;
+    }
+
+    @media screen and (max-width: 720px) {
+        #leftMenu {
+            display: none;
+        }
+        #rightContent,#contentFooter{
+            left:0;
+        }
+    } 

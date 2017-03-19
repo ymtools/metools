@@ -8,5 +8,8 @@ export default {
     },
     openRoute(route){
         router.push(route);
+    },
+    md5(str){
+        return 'a';
     }
 }

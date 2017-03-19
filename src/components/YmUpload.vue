@@ -11,7 +11,7 @@
 </template>
 <script>
     export default {
-        props:['value','previewPath','uploadApi'],
+        props:['value','previewPath','uploadApi','beforeShow'],
         data(){
             return {
                 uploadId:'upload_'+Date.now(),
@@ -27,6 +27,16 @@
                     if(res.Data){
                         self.displayImg=res.Data.previewPath
                         self.$emit('input', res.Data.savePath);
+                    }
+                }
+                ,before:function(res){
+                    if(self.beforeShow){
+                        var reader = new FileReader();
+                        reader.readAsDataURL(res.files[0]);
+                        reader.onload = function(e){
+                            self.displayImg=e.target.result
+                            self.$emit('before',self.displayImg);
+                        };
                     }
                 }
             });

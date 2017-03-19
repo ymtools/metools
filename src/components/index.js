@@ -1,4 +1,5 @@
 export default {
+    'v-button':require('./YmButton'),
     'v-checkbox':require('./YmCheckbox'),
     'v-date':require('./YmDate'),
     'v-editor':require('./YmEditor'),

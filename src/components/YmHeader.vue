@@ -6,7 +6,7 @@
                     {{item.MenuName}}
                     <span v-show="item.ChildrenMenu && item.ChildrenMenu.length>0" class="layui-nav-more" :class="{'layui-nav-mored':menuType==0 && menuIndex==item.Key && showItemIndex==item.Key}"></span>
                 </router-link >
-                <a v-else :href="item.MenuUrl||'javascript:void(0);'"  @click="switchMenuItem(item.Key);">
+                <a v-else :href="item.MenuUrl||'javascript:void(0);'"  target="_blank" @click="switchMenuItem(item.Key);">
                      <i :class="item.Icon" v-show="item.Icon"></i>
                     {{item.MenuName}}
                     <span v-show="item.ChildrenMenu && item.ChildrenMenu.length>0" class="layui-nav-more" :class="{'layui-nav-mored':menuType==0 && menuIndex==item.Key && showItemIndex==item.Key}"></span>
@@ -14,7 +14,7 @@
                 <dl v-show="item.ChildrenMenu && item.ChildrenMenu.length>0 && showItemIndex==item.Key" class="layui-nav-child layui-anim layui-anim-upbit" style="display:block" >
                     <dd class="level2-menu" v-for="item2 in item.ChildrenMenu">
                         <router-link :to="item2.MenuUrl" v-if="item2.MenuUrl && item2.MenuUrl.indexOf('/')==0 ">{{item2.MenuName}}</router-link>
-                        <a :href="item2.MenuUrl" v-else>{{item2.MenuName}}</a>
+                        <a :href="item2.MenuUrl" target="_blank" v-else>{{item2.MenuName}}</a>
                     </dd>
                 </dl>
             </li>

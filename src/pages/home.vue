@@ -7,7 +7,6 @@
             <div v-for="item in menus" class="welcome layui-circle" :style="color()">
                 <router-link :to="{path:item.MenuUrl}">{{item.MenuName}}</router-link>
             </div>
-
         </div>
     </div>
 </template>
