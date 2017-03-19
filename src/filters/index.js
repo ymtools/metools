@@ -9,7 +9,19 @@ export default {
     openRoute(route){
         router.push(route);
     },
-    md5(str){
-        return 'a';
+    openRedirect(url){
+        window.open(url);
+    },
+    openLayer(url,title){
+            layer.open({            
+                type:2,
+                shade:0,
+                skin:'layui-layer-molv',
+                anim: 4,
+                offset:'rb',
+                area: ['400px', '500px'],
+                title:title,
+                content:url}
+            );
     }
 }

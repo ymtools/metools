@@ -19,7 +19,7 @@
         </div>
         <div class="layui-footer footer footer-doc "  id="contentFooter">
             <p>
-                <a href="https://coding.net/u/yimocoding/p/metools/git">源码在此,拿走不谢。</a>
+                <a href="https://coding.net/u/yimocoding/p/metools/git" target="_blank">源码在此,拿走不谢。</a>
                 <a @click="openMsg">少年需要留个言么？</a>
             </p>
         </div>

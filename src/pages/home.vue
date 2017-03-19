@@ -2,6 +2,7 @@
     <div style="width:100%;height:100%;" class="layui-tab-brief">
         <ul class="layui-tab-title site-demo-title" style="margin-bottom:10px;">
             <li class="layui-this">欢迎页</li>
+            <li @click="$options.filters.openRedirect('http://coding.net/u/yimocoding/p/metools/git/blob/master/src/pages/home.vue')">查看代码</li>
         </ul>
         <div style="width:100%;height:100%;">
             <div v-for="item in menus" class="welcome layui-circle" :style="color()">
