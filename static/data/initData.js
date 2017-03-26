@@ -1,8 +1,7 @@
-function getSitInitData(){
-    var data={};
-    data.MenuItems=getMenuItems();
-    return data;
+window.siteData={
+    MenuItems:getMenuItems(),
 }
+initTongJi()
 function getMenuItems(){
     return [
         {
@@ -34,13 +33,31 @@ function getMenuItems(){
                     MenuName: '字符串替换',
                     MenuUrl: '/strsplit'
                 },
-                // {
-                //     Key: '205',
-                //     MenuName: 'Markdown转换',
-                //     MenuUrl: '/mdhh'
-                // }
+                {
+                    Key: '205',
+                    MenuName: '人民币转换',
+                    MenuUrl: '/rmbconvert'
+                },
+                {
+                    Key: '206',
+                    MenuName: 'Markdown转换',
+                    MenuUrl: '/mdconvert'
+                },
+                {
+                    Key: '207',
+                    MenuName: '二维码生成',
+                    MenuUrl: '/qrcode'
+                }
         //     ]
         // },
     ];
 }
-window.siteData=getSitInitData();
+function initTongJi(){
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?83ed2a06b8c764cebb78eece2c3452a2";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+}

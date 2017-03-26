@@ -11,6 +11,9 @@ const router = new VueRouter({
         { name: 'encode', path: '/encode', component: require('../pages/encode'), meta: {  } },
         { name: 'tobase64', path: '/tobase64', component: require('../pages/tobase64'), meta: {  } },
         { name: 'strsplit', path: '/strsplit', component: require('../pages/strsplit'), meta: {  } },
+        { name: 'rmbconvert', path: '/rmbconvert', component: require('../pages/rmbconvert'), meta: {  } },
+        { name: 'mdconvert', path: '/mdconvert', component: require('../pages/mdconvert'), meta: {  } },
+        { name: 'qrcode', path: '/qrcode', component: require('../pages/qrcode'),meta:{} }
     ]
 })
 

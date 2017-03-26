@@ -3,6 +3,7 @@
         <ul class="layui-tab-title site-demo-title" style="margin-bottom:10px;">
             <li :class="{'layui-this':tabType==1}"   @click="switchTab(1)">可逆加密/解密</li>
             <li :class="{'layui-this':tabType==2}" @click="switchTab(2)">散列/哈希</li>
+            <li @click="$options.filters.openRedirect('https://github.com/brix/crypto-js')">crypto-js使用</li>
             <li @click="$options.filters.openRedirect('http://coding.net/u/yimocoding/p/metools/git/blob/master/src/pages/encrypt.vue')">查看代码</li>
         </ul>
         <div style="width:100%;height:100%;" v-if="tabType==1">                
@@ -87,7 +88,7 @@
                     pwdTxt:'',
                     currentType:'',
                 },
-                encryptTypes:['AES','DES','RC4','Rabbit','TripleDES'],
+                encryptTypes:['AES','DES','RC4','Rabbit','TripleDES','Base64'],
                 hashTypes:['MD5','SHA1','SHA224','SHA256','SHA384','SHA512','HmacSHA1','HmacSHA224','HmacSHA256','HmacSHA384','HmacSHA512','HmacMD5'],
                 hashPwdTypes:['HmacSHA1','HmacSHA224','HmacSHA256','HmacSHA384','HmacSHA512','HmacMD5'],
                 tabType:0,
@@ -130,6 +131,11 @@
                     afterTxt:this.model.afterTxt||'',
                     pwdTxt:this.model.pwdTxt||''
                 };
+                if(type=='Base64'){
+                    var str=CryptoJS.enc.Utf8.parse(data.beforeTxt);
+                    self.model.afterTxt=CryptoJS.enc.Base64.stringify(str);
+                    return;
+                }
                 self.model.afterTxt=CryptoJS[type].encrypt(data.beforeTxt,data.pwdTxt).toString();
 
             },
@@ -140,6 +146,12 @@
                     afterTxt:this.model.afterTxt||'',
                     pwdTxt:this.model.pwdTxt||'',
                 };
+                if(type=='Base64'){
+                    var words  = CryptoJS.enc.Base64.parse(data.afterTxt);
+                    self.model.beforeTxt=words.toString(CryptoJS.enc.Utf8);
+
+                    return;
+                }
                 self.model.beforeTxt=CryptoJS[type].decrypt(data.afterTxt,data.pwdTxt).toString(CryptoJS.enc.Utf8);
                 
             },
